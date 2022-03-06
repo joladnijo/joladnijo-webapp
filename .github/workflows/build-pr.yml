@@ -39,4 +39,4 @@ jobs:
     - name: Build production assets
       run: npm run build
     - name: Try building Docker image
-      run: docker build -t joladnijo-webapp
+      run: docker build -t joladnijo-webapp .
