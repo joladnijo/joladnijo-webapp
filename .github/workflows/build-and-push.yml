@@ -1,32 +1,19 @@
 # This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-name: Build on pull request
+name: Build
 
 on:
-  pull_request:
-    branches: [ main ]
+  workflow_run:
+    workflows: [Test]
+    types: [completed]
+    branches: [main]
 
 jobs:
-  unit-tests:
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js 16
-      uses: actions/setup-node@v2
-      with:
-        node-version: '16'
-        cache: 'npm'
-    - name: Restore packages
-      run: npm ci
-    - name: Run unit tests
-      run: npm test
-
   build-docker-image:
-    needs: [ unit-tests ]
     runs-on: ubuntu-latest
-
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    
     steps:
     - uses: actions/checkout@v2
     - name: Use Node.js 16
@@ -38,5 +25,13 @@ jobs:
       run: npm ci
     - name: Build production assets
       run: npm run build
-    - name: Try building Docker image
+    - name: Build Docker image
       run: docker build -t joladnijo-webapp .
+    - name: Log into registry
+      run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
+    - name: Push image
+      run: |
+        IMAGE_ID=ghcr.io/${{ github.repository }}        
+        echo IMAGE_ID=$IMAGE_ID
+        docker tag image $IMAGE_ID:$VERSION
+        docker push $IMAGE_ID:$VERSION
