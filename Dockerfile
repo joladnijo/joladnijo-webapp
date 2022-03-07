@@ -1,4 +1,4 @@
-FROM nginx:1.19.2
+FROM nginx:1.21.6-alpine
 EXPOSE 80
 
 # Copy the new build files over to Nginx
