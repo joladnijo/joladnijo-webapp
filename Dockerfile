@@ -1,4 +1,5 @@
 FROM nginx:1.19.2
+EXPOSE 80
 
 # Copy the new build files over to Nginx
 COPY build /etc/nginx/html/
