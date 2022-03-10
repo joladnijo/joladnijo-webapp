@@ -65,16 +65,11 @@ jobs:
     
     steps:
       - uses: actions/checkout@v2
-      - name: Use Node.js 16
-        uses: actions/setup-node@v2
-        with:
-          node-version: '16'
-          cache: 'npm'
       - name: executing remote ssh commands using password
-        uses: appleboy/ssh-action@master
+        uses: fifsky/ssh-action@master
         with:
           host: ${{ secrets.VPS_HOSTNAME }}
-          username: ${{ secrets.VPS_USERNAME }}
+          user: ${{ secrets.VPS_USERNAME }}
           key: ${{ secrets.VPS_SSH_KEY }}
           port: ${{ secrets.VPS_PORT }}
-          script: whoami
+          command: whoami
