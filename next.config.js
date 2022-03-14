@@ -4,6 +4,9 @@ const nextConfig = {
   experimental: {
     outputStandalone: true,
   },
+  publicRuntimeConfig: {
+    backendApiBaseUrl: process.env.ENVIRONMENT || 'http://localhost:8000',
+  }
 }
 
 module.exports = nextConfig

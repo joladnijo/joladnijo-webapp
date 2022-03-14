@@ -2,12 +2,14 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import useSWR from 'swr';
 import styles from '../styles/Home.module.css'
+import getConfig from 'next/config'
 
 const fetcher = (input: RequestInfo, init?: RequestInit) => fetch(input, init).then(res => res.json());
+const { publicRuntimeConfig } = getConfig();
+const { backendApiBaseUrl } = publicRuntimeConfig;
 
 const Home: NextPage = () => {
-  const { data, error } = useSWR('http://localhost:8000/test/joladni-jo', fetcher);
-  const { slug } = data;
+  const { data, error } = useSWR(`${backendApiBaseUrl}/test/joladni-jo`, fetcher);  
   return (
     <div className={styles.container}>
       <Head>
@@ -18,7 +20,7 @@ const Home: NextPage = () => {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Jól adni jó. Teszteljük a backend hívást: {slug} {error && '😱 😱 😱'}
+          Jól adni jó. Teszteljük a backend hívást: {data && data.slug} {error && '😱 😱 😱'}
         </h1>
 
         
@@ -31,4 +33,4 @@ const Home: NextPage = () => {
   )
 }
 
-export default Home
+export default Home;
