@@ -1,15 +1,15 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
+import type { NextPage } from 'next';
+import Head from 'next/head';
 import useSWR from 'swr';
-import styles from '../styles/Home.module.css'
-import getConfig from 'next/config'
+import styles from '../styles/Home.module.css';
+import getConfig from 'next/config';
 
-const fetcher = (input: RequestInfo, init?: RequestInit) => fetch(input, init).then(res => res.json());
+const fetcher = (input: RequestInfo, init?: RequestInit) => fetch(input, init).then((res) => res.json());
 const { publicRuntimeConfig } = getConfig();
 const { backendApiBaseUrl } = publicRuntimeConfig;
 
 const Home: NextPage = () => {
-  const { data, error } = useSWR(`${backendApiBaseUrl}/test/joladni-jo`, fetcher);  
+  const { data, error } = useSWR(`${backendApiBaseUrl}/test/joladni-jo`, fetcher);
   return (
     <div className={styles.container}>
       <Head>
@@ -22,13 +22,9 @@ const Home: NextPage = () => {
         <h1 className={styles.title}>
           Jól adni jó. Teszteljük a backend hívást: {data && data.slug} {error && '😱 😱 😱'}
         </h1>
-
-        
       </main>
 
-      <footer className={styles.footer}>
-        ...
-      </footer>
+      <footer className={styles.footer}>...</footer>
     </div>
   );
 };
