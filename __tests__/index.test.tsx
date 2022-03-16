@@ -1,23 +1,21 @@
-import { render, screen } from '@testing-library/react'
-import Home from '@/pages/index'
+import { render, screen } from '@testing-library/react';
+import Home from '@/pages/index';
 
 jest.mock('next/config', () => () => ({
   publicRuntimeConfig: {
-    backendApiBaseUrl: 'http://example.test'
-  }
-}))
+    backendApiBaseUrl: 'http://example.test',
+  },
+}));
 
 describe('Home', () => {
-  beforeEach(() => {
-
-  });
+  beforeEach(() => {});
   it('renders a heading', () => {
-    render(<Home />)
+    render(<Home environmentName="test" slug="test-slug" />);
 
     const heading = screen.getByRole('heading', {
       name: /Jól adni jó. Teszteljük a backend hívást/i,
-    })
+    });
 
-    expect(heading).toBeInTheDocument()
-  })
-})
+    expect(heading).toBeInTheDocument();
+  });
+});
