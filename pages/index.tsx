@@ -1,14 +1,10 @@
 import type { GetServerSideProps, NextPage } from 'next';
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
-import getConfig from 'next/config';
-
-const fetcher = (input: RequestInfo, init?: RequestInit) => fetch(input, init).then((res) => res.json());
-const { publicRuntimeConfig } = getConfig();
 
 interface HomeProps {
   slug: string;
-  environmentName: string;
+  environmentName?: string;
 }
 
 const getBackendBaseUrl = ({ ENVIRONMENT }: any) => {
@@ -29,7 +25,7 @@ const Home: NextPage<HomeProps> = ({ slug, environmentName }) => {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>
+        <h1 className="text-3xl font-bold underline">
           Jól adni jó. Teszteljük a backend hívást {environmentName} kornyezetben: {slug}
         </h1>
       </main>
@@ -46,5 +42,5 @@ export const getServerSideProps: GetServerSideProps<HomeProps> = async () => {
 
   const res = await fetch(`${backendApiBaseUrl}/test/joladni-jo`);
   const { slug } = await res.json();
-  return { props: { slug, environmentName: process.env.ENVIRONMENT as string } };
+  return { props: { slug, environmentName: (process.env.ENVIRONMENT as string) || 'local' } };
 };
