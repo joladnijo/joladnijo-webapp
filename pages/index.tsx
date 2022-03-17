@@ -1,15 +1,25 @@
-import type { NextPage } from 'next';
+import type { GetServerSideProps, NextPage } from 'next';
 import Head from 'next/head';
-import useSWR from 'swr';
 import styles from '../styles/Home.module.css';
 import getConfig from 'next/config';
 
 const fetcher = (input: RequestInfo, init?: RequestInit) => fetch(input, init).then((res) => res.json());
 const { publicRuntimeConfig } = getConfig();
-const { backendApiBaseUrl } = publicRuntimeConfig;
 
-const Home: NextPage = () => {
-  const { data, error } = useSWR(`${backendApiBaseUrl}/test/joladni-jo`, fetcher);
+interface HomeProps {
+  slug: string;
+  environmentName: string;
+}
+
+const getBackendBaseUrl = ({ ENVIRONMENT }: any) => {
+  if (ENVIRONMENT === 'staging') {
+    return 'https://api.staging.joladnijo.jmsz.hu';
+  } else if (ENVIRONMENT === 'production') {
+    return 'https://api.staging.joladnijo.jmsz.hu';
+  } else return 'http://localhost:8000';
+};
+
+const Home: NextPage<HomeProps> = ({ slug, environmentName }) => {
   return (
     <div className={styles.container}>
       <Head>
@@ -20,7 +30,7 @@ const Home: NextPage = () => {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Jól adni jó. Teszteljük a backend hívást: {data && data.slug} {error && '😱 😱 😱'}
+          Jól adni jó. Teszteljük a backend hívást {environmentName} kornyezetben: {slug}
         </h1>
       </main>
 
@@ -30,3 +40,11 @@ const Home: NextPage = () => {
 };
 
 export default Home;
+
+export const getServerSideProps: GetServerSideProps<HomeProps> = async () => {
+  const backendApiBaseUrl = getBackendBaseUrl(process.env);
+
+  const res = await fetch(`${backendApiBaseUrl}/test/joladni-jo`);
+  const { slug } = await res.json();
+  return { props: { slug, environmentName: process.env.ENVIRONMENT as string } };
+};
