@@ -1,7 +1,6 @@
 import { GetServerSideProps, NextPage } from 'next';
 import styles from '@/styles/Home.module.css';
 import Head from 'next/head';
-import { faCoffee } from '@fortawesome/free-solid-svg-icons'
 
 
 const FooAidCenterInfoPage: NextPage = () => {
