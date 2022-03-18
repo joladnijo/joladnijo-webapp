@@ -56,67 +56,8 @@ a {
 }
 
 
-.item .icon {
-  height: 38px;
-  width: 38px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid rgba(48, 59, 89, 0.4);
-  border-radius: 100px;
-
-}
-
-.aid-not-needed .item .icon .slab {
-  height: 1px;  
-  width: 38px;
-  transform: rotate(45deg);
-  position: absolute;
-  top: 16.5px;
-  left: 0;
-  background-color: rgba(48, 59, 89, 0.6);
-}
-
-
-.social-icon {
-  height: 50px;
-  width: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 100px;
-  transition: all ease-in .2s;
-}
-
-.social-icon.facebook {
-  border: 1px solid #3B5998;
-}
-
-.social-icon.facebook:hover {
-  background-color: #3B5998;
-  cursor: pointer;
-}
-
-.social-icon.mail {
-  border: 1px solid #888888;
-}
-
-.social-icon.mail:hover {
-  background-color: #888888;
-  cursor: pointer;
-}
-
 .social-icon:hover path {
   fill: white;
 }
 
 
-.info-box {
-  background-color: #F8F8F8;
-  border-radius: 20px;
-  overflow: hidden;
-}
-
-.info-box .map {
-  height: 140px;
-}

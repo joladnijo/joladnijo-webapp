@@ -96,7 +96,7 @@ const FooAidCenterInfoPage: NextPage = () => {
       </div>
       
       
-      <div className='details container max-w-5xl min-h-screen bg-white mx-auto px-3 py-5 md:px-6 md:py-10'>
+      <div className='details container max-w-5xl min-h-screen bg-white mx-auto px-3 py-10 md:px-6 md:py-10'>
         <div className="grid md:grid-cols-3 gap-y-10">
 
 
@@ -110,14 +110,14 @@ const FooAidCenterInfoPage: NextPage = () => {
                 
                   {/* ITEM */}
                   <div className='item flex flex-row gap-x-4  items-center'>
-                    <div className='icon'>
+                    <div className='icon relative h-[38px]  w-[38px] flex items-center justify-center border border-[#303b5966] rounded-full'>
                       <i className="fa fa-search text-gray-400 top-5 left-4"></i>
                     </div>
                     <p>Item name</p>
                   </div>
 
                   <div className='item flex flex-row gap-x-4  items-center'>
-                    <div className='icon'>
+                    <div className='icon relative h-[38px]  w-[38px] flex items-center justify-center border border-[#303b5966] rounded-full'>
                       <i className="fa fa-search text-gray-400 top-5 left-4"></i>
                     </div>
                     <p>Item name</p>
@@ -132,16 +132,16 @@ const FooAidCenterInfoPage: NextPage = () => {
 
                   {/* ITEM */}
                   <div className='item flex flex-row gap-x-4  items-center'>
-                    <div className='icon relative'>
-                      <div className='slab'></div>
+                    <div className='icon relative h-[38px]  w-[38px] flex items-center justify-center border border-[#303b5966] rounded-full'>
+                      <div className='slab h-[1px] w-[38px] absolute t-16.5 l-0 bg-[#999999] rotate-45'></div>
                       <i className="fa fa-search text-gray-400 top-5 left-4"></i>
                     </div>
                     <p>Item name</p>
                   </div>
 
                   <div className='item flex flex-row gap-x-4  items-center'>
-                    <div className='icon relative'>
-                      <div className='slab'></div>
+                    <div className='icon relative h-[38px]  w-[38px] flex items-center justify-center border border-[#303b5966] rounded-full'>
+                      <div className='slab h-[1px] w-[38px] absolute t-16.5 l-0 bg-[#999999] rotate-45'></div>
                       <i className="fa fa-search text-gray-400 top-5 left-4"></i>
                     </div>
                     <p>Item name</p>
@@ -157,13 +157,13 @@ const FooAidCenterInfoPage: NextPage = () => {
                 <h2>Gyűjtőpont megosztása</h2>
                 <div className='icons flex flex-row gap-x-4'>
                   {/* FACEBOOK */}
-                  <div className='social-icon facebook'>
+                  <div className='social-icon transition-all facebook h-[50px]  w-[50px] flex items-center justify-center rounded-full border border-[#3B5998] hover:bg-[#3B5998] hover:cursor-pointer'>
                     <svg width="11" height="23" viewBox="0 0 11 23" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path fill-rule="evenodd" clip-rule="evenodd" d="M2.29788 22.75H6.39165V11.5055H9.46273L10.0701 7.992H6.39165V5.446C6.39165 4.62525 6.92235 3.7635 7.68082 3.7635H9.77141V0.25H7.20931V0.26575C3.20045 0.41125 2.3768 2.733 2.30538 5.17175H2.29788V7.992H0.25V11.5055H2.29788V22.75Z" fill="#3B5998"/>
                     </svg>
                   </div>
                   {/* MAIL */}
-                  <div className='social-icon mail'>
+                  <div className='social-icon transition-all h-[50px]  w-[50px] flex items-center justify-center rounded-full mail border border-[#888888] hover:bg-[#888888] hover:cursor-pointer'>
                     <svg width="22" height="17" viewBox="0 0 22 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M19.3984 0.371094H2.89844C1.59344 0.371094 0.658937 1.29922 0.648438 2.62109V14.6211C0.648438 15.943 1.59344 16.8711 2.89844 16.8711H19.3984C20.7034 16.8711 21.6484 15.943 21.6484 14.6211V2.62109C21.6484 1.29922 20.7034 0.371094 19.3984 0.371094ZM19.3984 4.87109L11.1484 10.1211L2.89844 4.87109V2.62109L11.1484 7.87109L19.3984 2.62109V4.87109Z" fill="#888888"/>
                     </svg>
@@ -175,8 +175,8 @@ const FooAidCenterInfoPage: NextPage = () => {
 
 
              {/* CONTACT */}
-             <div className='info-box'>
-              <div className='map min-h-3 bg-gray-300 '></div>
+             <div className='info-box bg-[#F8F8F8] rounded-[20px] overflow-hidden	'>
+              <div className='map min-h-3 bg-gray-300 bg-[#F8F8F8] h-[140px]'></div>
               <div className='info flex flex-col gap-4 p-6'>
                 <h2>Kapcsolat</h2>
                 <div className='contact-items flex flex-col gap-3'>
@@ -194,7 +194,7 @@ const FooAidCenterInfoPage: NextPage = () => {
              {/* END OF CONTACT */}
 
             {/* FINANCIAL */}
-            <div className='info-box'>
+            <div className='info-box bg-[#F8F8F8] rounded-[20px]'>
               <div className='info flex flex-col gap-4 p-6'>
                 <h2>Pénzadományok</h2>
                 <div className='finance-item'>
