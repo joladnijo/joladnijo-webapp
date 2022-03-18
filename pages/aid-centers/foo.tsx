@@ -83,7 +83,7 @@ const FooAidCenterInfoPage: NextPage = () => {
       {/* HEADER */}
       <div className='header container mx-auto bg-accent-dark bg-cover bg-hero h-80 max-w-5xl flex items-end relative'>
         <div className='w-full h-full absolute top-0 left-0 right-0 bottom-0 from-black bg-gradient-to-t opacity-80'></div>
-        <div className='mx-auto bg-accent-dark bg-cover bg-hero h-80 w-full h-full flex'>
+        <div className='mx-auto bg-accent-dark bg-cover bg-aid-center-hero h-80 w-full h-full flex'>
           <div className='title flex sm:items-end flex-col sm:flex-row justify-between absolute px-3 py-4	md:px-6 md:py-5 bottom-0 left-0 right-0'>
             <div className='left flex flex-col'>
               <h1 className='text-white	'>Piripócs művelődési ház</h1>
@@ -127,7 +127,7 @@ const FooAidCenterInfoPage: NextPage = () => {
 
               {/* AID NOT NEEDED */}
               <div className='aid-not-needed flex-col flex gap-y-4'>
-                <h2>Adományok, amikre már nincs szükség</h2>
+                <h2>Amiket ne hozzanak</h2>
                 <div className='item-list flex flex-col gap-y-3	'>
 
                   {/* ITEM */}
