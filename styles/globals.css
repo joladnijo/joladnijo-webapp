@@ -18,14 +18,13 @@ body {
     background: #EDF1F4;
   color: #090015;
   -webkit-font-smoothing: subpixel-antialiased;
-
+  -moz-osx-font-smoothing: grayscale;
 }
 
 h1 {
   font-family: 'Fira Sans', sans-serif;
   font-size: 26px;
   font-weight: 800;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 
@@ -33,11 +32,9 @@ h2 {
   font-family: 'Fira Sans', sans-serif;
   font-size: 18px;
   font-weight: 800;
-  -moz-osx-font-smoothing: grayscale;
 }
 p {
   font-family: 'Merriweather', serif;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 label {
