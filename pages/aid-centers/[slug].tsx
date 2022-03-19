@@ -1,13 +1,10 @@
 import { GetServerSideProps, NextPage } from 'next';
 import styles from '@/styles/Home.module.css';
 import Head from 'next/head';
-import { AidCenter } from 'models/AidCenter';
+import { AidCentersApi } from 'backend-sdk';
+import { AidCenter, AidCenterOrganization } from 'backend-sdk';
 
-interface AidCenterInfoPageProps {
-  id: string;
-  name: string;
-  slug: string;
-}
+interface AidCenterInfoPageProps extends AidCenter {}
 
 interface AidCenterInfoPageParams {
   [key: string]: string;
@@ -23,7 +20,8 @@ const getBackendBaseUrl = ({ ENVIRONMENT }: any) => {
 };
 
 const AidCenterInfoPage: NextPage<AidCenterInfoPageProps> = (props) => {
-  const { name } = props;
+  const { name, organization } = props;
+  const { name: organizationName } = organization;
   return (
     <div className={styles.container}>
       <Head>
@@ -149,7 +147,7 @@ const AidCenterInfoPage: NextPage<AidCenterInfoPageProps> = (props) => {
           <div className="title flex sm:items-end flex-col sm:flex-row justify-between absolute px-3 py-4	md:px-6 md:py-5 bottom-0 left-0 right-0">
             <div className="left flex flex-col">
               <h1 className="text-white	">{name}</h1>
-              <p className="text-white opacity-70	">Piripócsi önkormányzat</p>
+              <p className="text-white opacity-70	">{organizationName}</p>
             </div>
             <p className="text-white opacity-60 text-sm text-right">Utolára frissítve: 2 napja</p>
           </div>
@@ -290,14 +288,14 @@ export default AidCenterInfoPage;
 export const getServerSideProps: GetServerSideProps<AidCenterInfoPageProps, AidCenterInfoPageParams> = async (
   context,
 ) => {
-  const backendApiBaseUrl = getBackendBaseUrl(process.env);
-  const { slug: slugFromQuery } = context.params!;
+  const basePath = getBackendBaseUrl(process.env);
+  const api = new AidCentersApi({ basePath });
+  const { slug } = context.params!;
 
-  const response = await fetch(`${backendApiBaseUrl}/aid-centers/${slugFromQuery}`);
-  const data: AidCenter = await response.json();
+  const response = await api.retrieveAidCenter(slug);
   return {
     props: {
-      ...data,
+      ...response,
     },
   };
 };
