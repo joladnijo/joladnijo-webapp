@@ -10,9 +10,9 @@ const customJestConfig = {
     // Handle module aliases (this will be automatically configured for you soon)
     '^@/components/(.*)$': '<rootDir>/components/$1',
     '^@/pages/(.*)$': '<rootDir>/pages/$1',
+    '^lib/(.*)$': '<rootDir>/lib/$1',
   },
   testEnvironment: 'jest-environment-jsdom',
-  testMatch: ['**/__tests__/*.(ts|tsx)'],
   testPathIgnorePatterns: ['./.next/', './node_modules/'],
   transform: {
     '^.+\\.(ts|tsx)$': 'ts-jest',
