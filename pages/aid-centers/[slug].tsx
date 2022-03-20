@@ -4,7 +4,8 @@ import Head from 'next/head';
 import NavBar from '@/components/NavBar';
 import Header from '@/components/AidCenter/Header';
 import Contact from '@/components/AidCenter/Contact';
-import { AidCenter, AidCentersApi } from 'backend-sdk/api';
+import { AidCenter, AidCentersApi } from 'backend-sdk';
+import { Configuration } from 'backend-sdk';
 
 interface AidCenterInfoPageProps extends AidCenter {}
 
@@ -157,14 +158,14 @@ export const getServerSideProps: GetServerSideProps<AidCenterInfoPageProps, AidC
   context,
 ) => {
   const basePath = getBackendBaseUrl(process.env);
-  const api = new AidCentersApi(basePath);
+  const api = new AidCentersApi(new Configuration({ basePath }));
   const { slug } = context.params!;
 
   try {
     const response = await api.retrieveAidCenter(slug);
     return {
       props: {
-        ...response.body,
+        ...response,
       },
     };
   } catch (error: any) {
