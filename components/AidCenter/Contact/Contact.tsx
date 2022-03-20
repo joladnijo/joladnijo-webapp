@@ -1,5 +1,5 @@
 import React from 'react';
-import { AidCenter } from 'backend-sdk';
+import { AidCenter } from 'backend-sdk/api';
 
 const Contact: React.FC<AidCenter> = ({ address, postalCode, city, contact }) => {
   const phone = contact?.phone;

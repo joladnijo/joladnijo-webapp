@@ -1,4 +1,4 @@
-import { AidCenter } from 'backend-sdk';
+import { AidCenter } from 'backend-sdk/api';
 
 export const defaultAidCenter: AidCenter = {
   address: 'address',

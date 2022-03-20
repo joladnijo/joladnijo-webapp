@@ -1,0 +1,13 @@
+.gitignore
+.openapi-generator-ignore
+api.ts
+api/aidCentersApi.ts
+api/apiApi.ts
+api/apis.ts
+git_push.sh
+model/aidCenter.ts
+model/aidCenterAssetsRequested.ts
+model/aidCenterCategory.ts
+model/aidCenterOrganization.ts
+model/aidCenterOrganizationContact.ts
+model/models.ts

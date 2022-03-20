@@ -1,4 +1,4 @@
-import { AidCenter } from 'backend-sdk';
+import { AidCenter } from 'backend-sdk/api';
 import React from 'react';
 
 const Header: React.FC<AidCenter> = ({ name, organization }) => {
