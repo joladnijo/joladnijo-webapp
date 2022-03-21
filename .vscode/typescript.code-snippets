@@ -1,0 +1,10 @@
+{
+  "Next.js index.ts": {
+    "prefix": "nextindexts",
+    "body": [
+      "export { default } from './${TM_DIRECTORY/^.+\\\\/(.*)$/$1/}';",
+      ""
+    ],
+    "description": "Next.js index.ts"
+  }
+}
