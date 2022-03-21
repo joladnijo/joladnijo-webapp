@@ -9,6 +9,9 @@ import { Configuration } from 'backend-sdk';
 import Financial from '@/components/AidCenter/Financial';
 import Social from '@/components/AidCenter/Social';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons/faSearch';
+
 interface AidCenterInfoPageProps extends AidCenter {}
 
 interface AidCenterInfoPageParams {
@@ -25,7 +28,7 @@ const getBackendBaseUrl = ({ ENVIRONMENT }: any) => {
 };
 
 const AidCenterInfoPage: NextPage<AidCenterInfoPageProps> = (props) => {
-  const { name, organization } = props;
+  const { name } = props;
   return (
     <div className={styles.container}>
       <Head>
@@ -51,14 +54,14 @@ const AidCenterInfoPage: NextPage<AidCenterInfoPageProps> = (props) => {
                 {/* ITEM */}
                 <div className="item flex flex-row gap-x-4  items-center">
                   <div className="icon relative h-[38px]  w-[38px] flex items-center justify-center border border-[#303b5966] rounded-full">
-                    <i className="fa fa-search text-gray-400 top-5 left-4"></i>
+                    <FontAwesomeIcon icon={faSearch} className="text-gray-400 top-5 left-4" />
                   </div>
                   <p>Item name</p>
                 </div>
 
                 <div className="item flex flex-row gap-x-4  items-center">
                   <div className="icon relative h-[38px]  w-[38px] flex items-center justify-center border border-[#303b5966] rounded-full">
-                    <i className="fa fa-search text-gray-400 top-5 left-4"></i>
+                    <FontAwesomeIcon icon={faSearch} className="text-gray-400 top-5 left-4" />
                   </div>
                   <p>Item name</p>
                 </div>
@@ -73,7 +76,7 @@ const AidCenterInfoPage: NextPage<AidCenterInfoPageProps> = (props) => {
                 <div className="item flex flex-row gap-x-4  items-center">
                   <div className="icon relative h-[38px]  w-[38px] flex items-center justify-center border border-[#303b5966] rounded-full">
                     <div className="slab h-[1px] w-[38px] absolute t-16.5 l-0 bg-[#999999] rotate-45"></div>
-                    <i className="fa fa-search text-gray-400 top-5 left-4"></i>
+                    <FontAwesomeIcon icon={faSearch} className="text-gray-400 top-5 left-4" />
                   </div>
                   <p>Item name</p>
                 </div>
@@ -81,7 +84,7 @@ const AidCenterInfoPage: NextPage<AidCenterInfoPageProps> = (props) => {
                 <div className="item flex flex-row gap-x-4  items-center">
                   <div className="icon relative h-[38px]  w-[38px] flex items-center justify-center border border-[#303b5966] rounded-full">
                     <div className="slab h-[1px] w-[38px] absolute t-16.5 l-0 bg-[#999999] rotate-45"></div>
-                    <i className="fa fa-search text-gray-400 top-5 left-4"></i>
+                    <FontAwesomeIcon icon={faSearch} className="text-gray-400 top-5 left-4" />
                   </div>
                   <p>Item name</p>
                 </div>

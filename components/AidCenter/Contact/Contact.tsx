@@ -1,6 +1,9 @@
 import React from 'react';
 import { AidCenter } from 'backend-sdk';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons/faSearch';
+
 const Contact: React.FC<AidCenter> = ({ address, postalCode, city, contact }) => {
   const phone = contact?.phone;
   return (
@@ -10,14 +13,14 @@ const Contact: React.FC<AidCenter> = ({ address, postalCode, city, contact }) =>
         <h2>Kapcsolat</h2>
         <div className="contact-items flex flex-col gap-3">
           <div className="item address flex flex-row items-center gap-4">
-            <i className="fa fa-search text-gray-400 top-5 left-4"></i>
+            <FontAwesomeIcon icon={faSearch} className="text-gray-400 top-5 left-4" />
             <p>
               {postalCode} {city}, {address}
             </p>
           </div>
           {phone && (
             <div className="item phone flex flex-row items-center gap-4">
-              <i className="fa fa-search text-gray-400 top-5 left-4"></i>
+              <FontAwesomeIcon icon={faSearch} className="text-gray-400 top-5 left-4" />
               <p>{phone}</p>
             </div>
           )}
