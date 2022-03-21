@@ -2,7 +2,7 @@ import React from 'react';
 
 const Financial: React.FC = () => {
   return (
-    <div className="info-box">
+    <div className="info-box bg-[#F8F8F8] rounded-[20px]">
       <div className="info flex flex-col gap-4 p-6">
         <h2>Pénzadományok</h2>
         <div className="finance-item">

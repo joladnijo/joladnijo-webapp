@@ -4,8 +4,8 @@ import { AidCenter } from 'backend-sdk';
 const Contact: React.FC<AidCenter> = ({ address, postalCode, city, contact }) => {
   const phone = contact?.phone;
   return (
-    <div className="info-box">
-      <div className="map min-h-3 bg-gray-300 "></div>
+    <div className="info-box bg-[#F8F8F8] rounded-[20px] overflow-hidden	">
+      <div className="map min-h-3 bg-gray-300 bg-[#F8F8F8] h-[140px]"></div>
       <div className="info flex flex-col gap-4 p-6">
         <h2>Kapcsolat</h2>
         <div className="contact-items flex flex-col gap-3">

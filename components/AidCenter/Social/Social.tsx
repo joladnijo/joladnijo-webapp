@@ -6,7 +6,7 @@ const Social: React.FC = () => {
       <h2>Gyűjtőpont megosztása</h2>
       <div className="icons flex flex-row gap-x-4">
         {/* FACEBOOK */}
-        <div className="social-icon facebook">
+        <div className="social-icon transition-all facebook h-[50px]  w-[50px] flex items-center justify-center rounded-full border border-[#3B5998] hover:bg-[#3B5998] hover:cursor-pointer">
           <svg width="11" height="23" viewBox="0 0 11 23" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
               fillRule="evenodd"
@@ -17,7 +17,7 @@ const Social: React.FC = () => {
           </svg>
         </div>
         {/* MAIL */}
-        <div className="social-icon mail">
+        <div className="social-icon transition-all h-[50px]  w-[50px] flex items-center justify-center rounded-full mail border border-[#888888] hover:bg-[#888888] hover:cursor-pointer">
           <svg width="22" height="17" viewBox="0 0 22 17" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
               d="M19.3984 0.371094H2.89844C1.59344 0.371094 0.658937 1.29922 0.648438 2.62109V14.6211C0.648438 15.943 1.59344 16.8711 2.89844 16.8711H19.3984C20.7034 16.8711 21.6484 15.943 21.6484 14.6211V2.62109C21.6484 1.29922 20.7034 0.371094 19.3984 0.371094ZM19.3984 4.87109L11.1484 10.1211L2.89844 4.87109V2.62109L11.1484 7.87109L19.3984 2.62109V4.87109Z"
