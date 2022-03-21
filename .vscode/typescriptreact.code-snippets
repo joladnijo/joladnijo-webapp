@@ -1,0 +1,16 @@
+{
+  "Next.js component": {
+    "prefix": "nextcomponent",
+    "body": [
+      "import React from 'react';",
+      "",
+      "const ${TM_FILENAME_BASE}: React.FC = () => {",
+      "  return <div></div>;",
+      "};",
+      "",
+      "export default $TM_FILENAME_BASE;",
+      ""
+    ],
+    "description": "Next.js component"
+  }
+}
