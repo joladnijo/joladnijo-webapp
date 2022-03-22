@@ -96,7 +96,7 @@ const AidCenterInfoPage: NextPage<AidCenterInfoPageProps> = (props) => {
           {/* SOCIAL */}
           <div className="social col-span-1 flex flex-col gap-y-10	">
             {/* SOCIAL */}
-            <Social {...props} />
+            {/* <Social {...props} /> */}
             {/* END OF SOCIAL */}
 
             {/* CONTACT */}
@@ -104,7 +104,7 @@ const AidCenterInfoPage: NextPage<AidCenterInfoPageProps> = (props) => {
             {/* END OF CONTACT */}
 
             {/* FINANCIAL */}
-            <Financial />
+            {/* <Financial /> */}
             {/* END OF FINANCIAL */}
           </div>
         </div>
