@@ -40,7 +40,12 @@ winget install OpenJS.NodeJS.LTS --version 16.14.2
 ```
 
 ### Lokális futtatás
+Restore packages
+```sh
+npm ci
 ```
+majd
+```sh
 npm run dev
 ```
 Ez development módban futtatja majd a webalkalmazást, és a lokálisan futtatott backendhez próbál majd csatlakozni, ami a http://localhost:8000 címen fut alapértelmezetten. A backend futtatásához bővebb információk a [backend repository](https://github.com/joladnijo/joladnijo-backend) oldalán található.
