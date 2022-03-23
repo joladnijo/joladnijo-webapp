@@ -37,3 +37,4 @@ test-results/
 
 # typescript
 *.tsbuildinfo
+package-lock.json
