@@ -30,11 +30,11 @@ jobs:
       run: npm run typecheck
     - name: Run lint
       run: npm run lint
-    - name: Run E2E tesztek
+    - name: Run E2E tests
       run:  |
         npx playwright install
         sudo npx playwright install-deps
-        npx playwright test
+        npm run e2e
 
   build-docker-image:
     runs-on: ubuntu-latest
