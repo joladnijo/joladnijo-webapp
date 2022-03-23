@@ -33,7 +33,6 @@ jobs:
     - name: Run E2E tests
       run:  |
         npm run playwright:install
-        sudo npx playwright install-deps
         npm run e2e
 
   build-docker-image:
