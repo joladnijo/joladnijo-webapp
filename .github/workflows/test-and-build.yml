@@ -33,6 +33,7 @@ jobs:
     - name: Run E2E tesztek
       run:  |
         npx playwright install
+        sudo npx playwright install-deps
         npx playwright test
 
   build-docker-image:
