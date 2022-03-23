@@ -32,7 +32,7 @@ jobs:
       run: npm run lint
     - name: Run E2E tests
       run:  |
-        npx playwright install
+        npm run playwright:install
         sudo npx playwright install-deps
         npm run e2e
 
