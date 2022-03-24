@@ -11,6 +11,7 @@ import Social from '@/components/AidCenter/Social';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons/faSearch';
+import { defaultAidCenter } from 'lib/mocks/defaultAidCenter';
 
 interface AidCenterInfoPageProps extends AidCenter {}
 
@@ -118,12 +119,12 @@ export default AidCenterInfoPage;
 export const getServerSideProps: GetServerSideProps<AidCenterInfoPageProps, AidCenterInfoPageParams> = async (
   context,
 ) => {
-  const basePath = getBackendBaseUrl(process.env);
-  const api = new AidCentersApi(new Configuration({ basePath }));
-  const { slug } = context.params!;
+  // const basePath = getBackendBaseUrl(process.env);
+  // const api = new AidCentersApi(new Configuration({ basePath }));
+  // const { slug } = context.params!;
 
   try {
-    const response = await api.retrieveAidCenter(slug);
+    const response: AidCenter = { ...defaultAidCenter }; // await api.retrieveAidCenter(slug);
     return {
       props: {
         ...response,
