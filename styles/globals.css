@@ -33,6 +33,13 @@ h2 {
   font-size: 18px;
   font-weight: 800;
 }
+
+
+h3 {
+  font-family: 'Fira Sans', sans-serif;
+  font-weight: 800;
+}
+
 p {
   font-family: 'Merriweather', serif;
 }
@@ -58,3 +65,6 @@ a {
 }
 
 
+.header .overlay {
+  background: linear-gradient(360deg, rgba(21, 111, 117, 1) 5.82%, rgba(0, 0, 0, 0) 100%);
+}

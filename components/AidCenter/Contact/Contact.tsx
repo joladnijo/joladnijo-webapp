@@ -25,6 +25,9 @@ const Contact: React.FC<AidCenter> = ({ address, postalCode, city, contact }) =>
             </div>
           )}
         </div>
+        <div className='border-t-2 border-gray-200 pt-3 mt-3'>
+          <p className='text-sm'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt u.</p>
+        </div>
       </div>
     </div>
   );
