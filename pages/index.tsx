@@ -6,7 +6,7 @@ interface HomeProps {
   environmentName?: string;
 }
 
-const Home: NextPage<HomeProps> = ({ slug, environmentName }) => {
+const Home: NextPage<HomeProps> = ({ environmentName }) => {
   return (
     <div className={styles.container}>
       <Head>
