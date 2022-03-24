@@ -13,7 +13,8 @@ const customJestConfig = {
     '^lib/(.*)$': '<rootDir>/lib/$1',
   },
   testEnvironment: 'jest-environment-jsdom',
-  testPathIgnorePatterns: ['./.next/', './node_modules/'],
+  testMatch: ['**/__tests__/*.(ts|tsx)'],
+  testPathIgnorePatterns: ['./.next/', './node_modules/', '<rootDir>/e2e/'],
   transform: {
     '^.+\\.(ts|tsx)$': 'ts-jest',
   },

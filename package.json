@@ -10,7 +10,9 @@
     "lint:fix": "next lint --fix",
     "test": "jest --watch",
     "test:ci": "jest --ci",
-    "typecheck": "tsc --project ./tsconfig.noemit.json"
+    "typecheck": "tsc --project ./tsconfig.noemit.json",
+    "playwright:install": "playwright install",
+    "e2e": "playwright test"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.1.0",
@@ -25,6 +27,7 @@
     "yarn": "^1.22.17"
   },
   "devDependencies": {
+    "@playwright/test": "1.15.0",
     "@testing-library/jest-dom": "5.16.1",
     "@testing-library/react": "12.1.2",
     "@testing-library/user-event": "13.5.0",
