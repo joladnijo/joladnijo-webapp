@@ -6,6 +6,7 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons/faSearch';
 
 const Contact: React.FC<AidCenter> = ({ address, postalCode, city, contact }) => {
   const phone = contact?.phone;
+  const contactNote = contact?.note;
   return (
     <div className="info-box bg-[#F8F8F8] rounded-[20px] overflow-hidden	">
       {/* <div className="map min-h-3 bg-gray-300 bg-[#F8F8F8] h-[140px]"></div> */}
@@ -25,11 +26,11 @@ const Contact: React.FC<AidCenter> = ({ address, postalCode, city, contact }) =>
             </div>
           )}
         </div>
-        <div className="border-t-2 border-gray-200 pt-3 mt-3">
-          <p className="text-sm">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt u.
-          </p>
-        </div>
+        {contactNote && (
+          <div className="border-t-2 border-gray-200 pt-3 mt-3">
+            <p className="text-sm">{contactNote}</p>
+          </div>
+        )}
       </div>
     </div>
   );
