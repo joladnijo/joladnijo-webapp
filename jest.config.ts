@@ -17,7 +17,8 @@ const customJestConfig = {
   ],
   testPathIgnorePatterns: [
       "./.next/",
-      "./node_modules/",      
+      "./node_modules/",
+      "<rootDir>/e2e/",
   ],
   transform: {
     "^.+\\.(ts|tsx)$": "ts-jest"
