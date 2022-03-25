@@ -1,8 +1,31 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import styles from './NavBar.module.css';
 
 const NavBar: React.FC = () => {
+  const [atTopOfThePage, setAtTopOfThePage] = useState(true);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // when the user scrolls, check the pageYOffset
+      if (window.pageYOffset > 0) {
+        // user is scrolled
+        if (atTopOfThePage) setAtTopOfThePage(false);
+      } else {
+        // user is at top of page
+        if (!atTopOfThePage) setAtTopOfThePage(true);
+      }
+    };
+    window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  });
+
+  const navClassScrolled = atTopOfThePage ? '' : styles.scrolled;
+
   return (
-    <nav className="flex bg-white flex-wrap max-h-[70px] items-center justify-center p-4 border-b-1 border-gray-100 drop-shadow-[0_4px_12px_rgba(0,0,0,0.08)] fixed left-0 top-0 right-0 z-10	">
+    <nav
+      className={`flex bg-white flex-wrap max-h-[70px] items-center justify-center p-4 border-b-1 border-gray-100 drop-shadow-[0_4px_12px_rgba(0,0,0,0.08)] fixed left-0 top-0 right-0 z-10 ${navClassScrolled}`}
+    >
       <div className="lg:order-2 w-auto lg:w-1/5 lg:text-center">
         <a className="text-xl text-gray-800 font-semibold font-heading" href="#">
           <svg

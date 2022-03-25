@@ -1,0 +1,4 @@
+.scrolled {
+  @apply shadow-2xl;
+  border-bottom: 0px;
+}
