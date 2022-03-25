@@ -11,6 +11,7 @@ const customJestConfig = {
     '^@/components/(.*)$': '<rootDir>/components/$1',
     '^@/pages/(.*)$': '<rootDir>/pages/$1',
     '^lib/(.*)$': '<rootDir>/lib/$1',
+    '^backend-sdk/(.*)$': '<rootDir>/backend-sdk/$1',
   },
   testEnvironment: 'jest-environment-jsdom',
   testMatch: ['**/__tests__/*.(ts|tsx)'],

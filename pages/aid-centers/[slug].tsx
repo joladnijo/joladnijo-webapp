@@ -4,10 +4,10 @@ import Head from 'next/head';
 import NavBar from '@/components/NavBar';
 import Header from '@/components/AidCenter/Header';
 import Contact from '@/components/AidCenter/Contact';
-import { AidCenter, AidCentersApi } from 'backend-sdk';
-import { Configuration } from 'backend-sdk';
-import Financial from '@/components/AidCenter/Financial';
-import Social from '@/components/AidCenter/Social';
+
+import { AidCenter, AidCenterCallRequiredEnum } from 'backend-sdk/models';
+import { AidCentersApi } from 'backend-sdk/apis';
+import { Configuration } from 'backend-sdk/runtime';
 
 import RequestItem from '@/components/RequestItem';
 
@@ -27,7 +27,7 @@ const getBackendBaseUrl = ({ ENVIRONMENT }: any) => {
 };
 
 const AidCenterInfoPage: NextPage<AidCenterInfoPageProps> = (props) => {
-  const { name, note, assetsRequested, assetsOverloaded } = props;
+  const { name, note, assetsRequested, assetsOverloaded, callRequired } = props;
   return (
     <div className={styles.container}>
       <Head>
@@ -54,9 +54,11 @@ const AidCenterInfoPage: NextPage<AidCenterInfoPageProps> = (props) => {
 
                 {/* AID-CENTER INSTRUCTION */}
 
-                <div className="aid-center-instruction py-4 border-t-1  border-t-2 border-b-2 border-gray-200 text-sm">
-                  <h3>Adományküldés előtt kérjük hívja fel a gyűjtőpontot!</h3>
-                </div>
+                {callRequired && callRequired === AidCenterCallRequiredEnum.Required && (
+                  <div className="aid-center-instruction py-4 border-t-1  border-t-2 border-b-2 border-gray-200 text-sm">
+                    <h3>Adományküldés előtt kérjük hívja fel a gyűjtőpontot!</h3>
+                  </div>
+                )}
 
                 {/* AID NEEDED */}
                 {assetsRequested && (
