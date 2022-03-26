@@ -12,6 +12,7 @@
     "test:ci": "jest --ci",
     "typecheck": "tsc --project ./tsconfig.noemit.json",
     "playwright:install": "playwright install",
+    "playwright:install:ci": "playwright install --with-deps",
     "e2e": "playwright test"
   },
   "dependencies": {

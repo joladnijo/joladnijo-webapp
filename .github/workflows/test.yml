@@ -58,6 +58,11 @@ jobs:
       run: npm ci
     - name: Run E2E tests
       run:  |
-        npm run playwright:install
-        sudo npx playwright install-deps
+        npm run playwright:install:ci
         npm run e2e
+    - name: Upload test results
+      if: always()
+      uses: actions/upload-artifact@v2
+      with:
+        name: playwright-results
+        path: test-results
