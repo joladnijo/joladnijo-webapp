@@ -12,7 +12,7 @@ describe('AidCenter Info page', () => {
     render(<AidCenterInfoPage {...props} />);
 
     // assert
-    const requiredText = screen.getByText('Adományküldés előtt kérjük hívja fel a gyűjtőpont2ot!');
+    const requiredText = screen.getByText('Adományküldés előtt kérjük hívja fel a gyűjtőpontot!');
     expect(requiredText).toBeInTheDocument();
   });
 
@@ -26,9 +26,5 @@ describe('AidCenter Info page', () => {
     // assert
     const requiredText = screen.queryByText('Adományküldés előtt kérjük hívja fel a gyűjtőpontot!');
     expect(requiredText).toBeNull();
-  });
-
-  it('Foo', () => {
-    expect(2).toBe(1);
   });
 });
