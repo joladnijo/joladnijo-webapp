@@ -12,7 +12,7 @@ describe('AidCenter Info page', () => {
     render(<AidCenterInfoPage {...props} />);
 
     // assert
-    const requiredText = screen.getByText('Adományküldés előtt kérjük hívja fel a gyűjtőpontot!');
+    const requiredText = screen.getByText('Adományküldés előtt kérjük hívja fel a gyűjtőpont2ot!');
     expect(requiredText).toBeInTheDocument();
   });
 
