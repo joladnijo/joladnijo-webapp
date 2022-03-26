@@ -27,4 +27,8 @@ describe('AidCenter Info page', () => {
     const requiredText = screen.queryByText('Adományküldés előtt kérjük hívja fel a gyűjtőpontot!');
     expect(requiredText).toBeNull();
   });
+
+  it('Foo', () => {
+    expect(2).toBe(1);
+  });
 });
