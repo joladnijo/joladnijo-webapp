@@ -28,7 +28,7 @@
     "yarn": "^1.22.17"
   },
   "devDependencies": {
-    "@playwright/test": "1.15.0",
+    "@playwright/test": "^1.20.1",
     "@testing-library/jest-dom": "5.16.1",
     "@testing-library/react": "12.1.2",
     "@testing-library/user-event": "13.5.0",
