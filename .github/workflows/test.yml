@@ -54,6 +54,8 @@ jobs:
       with:
         node-version: '16'
         cache: 'npm'
+    - name: Restore packages
+      run: npm ci
     - name: Run E2E tests
       run:  |
         npm run playwright:install
