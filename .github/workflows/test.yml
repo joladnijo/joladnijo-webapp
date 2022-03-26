@@ -56,10 +56,10 @@ jobs:
         cache: 'npm'
     - name: Restore packages
       run: npm ci
+    - name: Install Playwright
+      run: npm run playwright:install:ci
     - name: Run E2E tests
-      run:  |
-        npm run playwright:install:ci
-        npm run e2e
+      run: npm run e2e
     - name: Upload test results
       if: always()
       uses: actions/upload-artifact@v2
