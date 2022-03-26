@@ -1,4 +1,6 @@
 # JolAdniJo - Frontend web alkalmazás
+![Test](https://github.com/joladnijo/joladnijo-webapp/actions/workflows/test/badge.svg)
+
 
 Ez a https://joladnijo.jmsz.hu adományozási információkat segítő oldalnak a látogatókat kiszolgáló webapp frontendje. (Az adminisztrációs felület backoffice frontendje ettől külön van.) This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
