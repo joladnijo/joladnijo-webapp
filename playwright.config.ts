@@ -9,7 +9,7 @@ const config: PlaywrightTestConfig = {
   testDir: path.join(__dirname, 'e2e'),
   // If a test fails, retry it additional 2 times
   retries: 2,
-  reporter: process.env.CI ? 'dot' : 'list',
+  reporter: process.env.CI ? 'github' : 'list',
   // Artifacts folder where screenshots, videos, and traces are stored.
   outputDir: 'test-results/',
 
