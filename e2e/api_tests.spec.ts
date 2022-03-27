@@ -11,7 +11,7 @@ const config: PlaywrightTestConfig = {
       // Add authorization token to all requests.
       // Assuming personal access token available in the environment.
       //'Authorization': `token ${process.env.API_TOKEN}`,
-    },
+    //},
   }
 };
 export default config;
