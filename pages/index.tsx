@@ -6,11 +6,10 @@ import RequestItem from '@/components/RequestItem';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 
-interface HomeProps {
-  environmentName?: string;
-}
+import Image from 'next/image';
+import heroDecor from '../public/images/hero-decor.png';
 
-const Home: NextPage<HomeProps> = ({ environmentName }) => {
+const Home: NextPage = () => {
   return (
     <div className={styles.container}>
       <Head>
@@ -37,10 +36,13 @@ const Home: NextPage<HomeProps> = ({ environmentName }) => {
                 Mivel tudok segíteni?
               </button>
             </div>
-            <img
+            <Image
+              src={heroDecor}
+              alt="Hero deco"
+              layout="fill"
+              objectFit="none"
               className="absolute max-w-[300px] xs:max-w-[400px] sm:max-w-[500px] md:max-w-[600px] bottom-0 left-0"
-              src="../images/hero-decor.png"
-            ></img>
+            />
           </div>
         </div>
 
@@ -97,7 +99,3 @@ const Home: NextPage<HomeProps> = ({ environmentName }) => {
 };
 
 export default Home;
-
-export const getServerSideProps: GetServerSideProps<HomeProps> = async () => {
-  return { props: { environmentName: (process.env.ENVIRONMENT as string) || 'local' } };
-};
