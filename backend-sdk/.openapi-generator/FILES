@@ -1,0 +1,7 @@
+.openapi-generator-ignore
+apis/AidCentersApi.ts
+apis/ApiApi.ts
+apis/index.ts
+index.ts
+models/index.ts
+runtime.ts

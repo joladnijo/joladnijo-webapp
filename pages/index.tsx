@@ -3,19 +3,10 @@ import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 
 interface HomeProps {
-  slug: string;
-  environmentName: string;
+  environmentName?: string;
 }
 
-const getBackendBaseUrl = ({ ENVIRONMENT }: any) => {
-  if (ENVIRONMENT === 'staging') {
-    return 'https://api.staging.joladnijo.jmsz.hu';
-  } else if (ENVIRONMENT === 'production') {
-    return 'https://api.staging.joladnijo.jmsz.hu';
-  } else return 'http://localhost:8000';
-};
-
-const Home: NextPage<HomeProps> = ({ slug, environmentName }) => {
+const Home: NextPage<HomeProps> = ({ environmentName }) => {
   return (
     <div className={styles.container}>
       <Head>
@@ -25,9 +16,7 @@ const Home: NextPage<HomeProps> = ({ slug, environmentName }) => {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>
-          Jól adni jó. Teszteljük a backend hívást {environmentName} kornyezetben: {slug}
-        </h1>
+        <h1 className="text-3xl font-bold underline">Jól adni jó. Environment: {environmentName}</h1>
       </main>
 
       <footer className={styles.footer}>...</footer>
@@ -38,9 +27,5 @@ const Home: NextPage<HomeProps> = ({ slug, environmentName }) => {
 export default Home;
 
 export const getServerSideProps: GetServerSideProps<HomeProps> = async () => {
-  const backendApiBaseUrl = getBackendBaseUrl(process.env);
-
-  const res = await fetch(`${backendApiBaseUrl}/test/joladni-jo`);
-  const { slug } = await res.json();
-  return { props: { slug, environmentName: process.env.ENVIRONMENT as string } };
+  return { props: { environmentName: (process.env.ENVIRONMENT as string) || 'local' } };
 };
