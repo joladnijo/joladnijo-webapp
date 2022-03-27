@@ -1,19 +1,12 @@
 import { render, screen } from '@testing-library/react';
 import Home from '@/pages/index';
 
-jest.mock('next/config', () => () => ({
-  publicRuntimeConfig: {
-    backendApiBaseUrl: 'http://example.test',
-  },
-}));
-
 describe('Home', () => {
-  beforeEach(() => {});
   it('renders a heading', () => {
-    render(<Home environmentName="test" slug="test-slug" />);
+    render(<Home environmentName="test" />);
 
     const heading = screen.getByRole('heading', {
-      name: /Jól adni jó. Teszteljük a backend hívást/i,
+      name: /Jól adni jó/i,
     });
 
     expect(heading).toBeInTheDocument();
