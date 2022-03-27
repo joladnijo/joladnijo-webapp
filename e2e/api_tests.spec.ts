@@ -4,7 +4,7 @@ import { test, expect } from '@playwright/test'
 const config: PlaywrightTestConfig = {
   use: {
     // All requests we send go to this API endpoint.
-    baseURL: 'https://www.metaweather.com/',
+    baseURL: 'https://www.metaweather.com',
     //extraHTTPHeaders: {
       // We set this header per GitHub guidelines.
       //'Accept': 'application/json',
@@ -21,6 +21,6 @@ export default config;
 //const USER = 'github-username';
 
 test('nézzük meg milyen az idő budapesten', async ({ request }) => {
-  const budIdo = await request.get(`/api/location/search/?query=Budapest`);
+  const budIdo = await request.get(`/api/location/search/?query=budapest`);
   expect(budIdo.ok()).toBeTruthy();
 });
