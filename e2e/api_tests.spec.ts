@@ -19,9 +19,16 @@ export default config;
 //const REPO = 'test-repo-1';
 //const USER = 'github-username';
 
-test('budapest_idojaras', async ({ request }) => {
-  const budIdo = await request.get(`/api/location/search/?query=budapest`);
-  expect(budIdo.ok()).toBeTruthy();
+//test('budapest_idojaras', async ({ request }) => {
+  //const budIdo = await request.get(`/api/location/search/?query=budapest`);
+  //expect(budIdo.ok()).toBeTruthy();
   //expect(await budIdo.json()).toContainEqual(expect.objectContaining({
   //  title: 'Budapest',
   //  woeid: '804365',});
+
+  test('budapest_idojaras', async ({ request }) => {
+      const response = await request.get('/api/location/search/', { data: { query: 'budapest' } })
+      expect(response.status()).toBe(200)
+      const body = await response.text()
+      expect(response.ok()).toBeTruthy()
+    })
