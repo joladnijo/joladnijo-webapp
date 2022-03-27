@@ -21,6 +21,6 @@ export default config;
 //const USER = 'github-username';
 
 test('nézzük meg milyen az idő budapesten', async ({ request }) => {
-  const budIdo = await request.post(`/api/location/search/?query=Budapest`);
+  const budIdo = await request.get(`/api/location/search/?query=Budapest`);
   expect(budIdo.ok()).toBeTruthy();
 });
