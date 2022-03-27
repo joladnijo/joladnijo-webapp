@@ -25,5 +25,5 @@ test('budapest_idojaras', async ({ request }) => {
   expect(budIdo.ok()).toBeTruthy();
   expect(await budIdo.json()).toContainEqual(expect.objectContaining({
     title: 'Budapest',
-    woeid: '804365'
+    woeid: '804365',
 });
