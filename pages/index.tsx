@@ -1,6 +1,11 @@
 import type { GetServerSideProps, NextPage } from 'next';
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
+import NavBar from '@/components/NavBar';
+import RequestItem from '@/components/RequestItem';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
+
 
 interface HomeProps {
   environmentName?: string;
@@ -16,7 +21,57 @@ const Home: NextPage<HomeProps> = ({ environmentName }) => {
       </Head>
 
       <main className={styles.main}>
-        <h1 className="text-3xl font-bold underline">Jól adni jó. Environment: {environmentName}</h1>
+        <NavBar />
+        <div className='px-2 w-full '>
+          <div className='container relative mx-auto bg-cover bg-main-hero min-h-[584px] bg-bottom	mt-12 flex flex-col justify-center  px-5 md:px-20'>
+            <div className='text-container max-w-[621px] mb-10'>
+              <h1 className='large text-white text-5xl md:text-7xl uppercase mb-3 leading-snug	opacity-95 antialiased'>Ukrán válsághelyzet</h1>
+              <p className='text-white text-l md:text-xl uppercase opacity-95'>Ukrajnai, kárpátaljai családok ezrei menekülnek a háború elől. Támogasd őket azzal, amire szükségük van.</p>
+              <button type="button" className="py-4 px-6 mt-10 bg-orange hover:bg-orange-lighten focus:ring-orange-lighten focus:ring-offset-orange-light text-white transition ease-in duration-200 text-center focus:outline-none focus:ring-2 focus:ring-offset-2">
+                Mivel tudok segíteni?
+              </button>
+            </div>
+            <img className='absolute max-w-[300px] xs:max-w-[400px] sm:max-w-[500px] md:max-w-[600px] bottom-0 left-0' src='../images/hero-decor.png'></img>
+          </div>
+        </div>
+
+        <div className='px-2 w-full mt-10'>
+          <div className='container mx-auto max-w-[1000px]'>
+            <div className='aid-center-container w-full bg-white min-h-[100px] rounded-[20px] p-[20px] mb-[25px]'>
+              <div className='aid-center-header flex gap-4 items-center md:items-start'>
+                <svg width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M0 3C0 1.34315 1.34315 0 3 0H43C44.6569 0 46 1.34315 46 3V43C46 44.6569 44.6569 46 43 46H3C1.34315 46 0 44.6569 0 43V3Z" fill="#63A6AF"/>
+                  <path d="M30.15 26.3009H24.1V22.4509C24.1 22.1484 23.8525 21.9009 23.55 21.9009H15.85C15.5475 21.9009 15.3 22.1484 15.3 22.4509V31.2509C15.3 31.5534 15.5475 31.8009 15.85 31.8009H30.15C30.4525 31.8009 30.7 31.5534 30.7 31.2509V26.8509C30.7 26.5484 30.4525 26.3009 30.15 26.3009ZM23 30.7009H16.4V27.4009H23V30.7009ZM23 26.3009H16.4V23.0009H23V26.3009ZM29.6 30.7009H24.1V27.4009H29.6V30.7009ZM32.9894 18.2675L23.6394 14.3281C23.2338 14.1562 22.7697 14.1562 22.3606 14.3281L13.0106 18.2675C12.3953 18.5253 12 19.1234 12 19.7869V31.5259C12 31.6772 12.1237 31.8009 12.275 31.8009H12.825C12.9763 31.8009 13.1 31.6772 13.1 31.5259V19.7869C13.1 19.5634 13.2306 19.3675 13.4369 19.2781L22.7869 15.3387C22.9209 15.2803 23.0791 15.2803 23.2131 15.3387L32.5631 19.2781C32.7694 19.3641 32.9 19.5634 32.9 19.7869V31.5259C32.9 31.6772 33.0238 31.8009 33.175 31.8009H33.725C33.8763 31.8009 34 31.6772 34 31.5259V19.7869C34 19.1234 33.6047 18.5253 32.9894 18.2675V18.2675Z" fill="white"/>
+                </svg>
+                <div className='text flex items-start gap-4'>
+                  <h2 className='text-base'>Piripócs művelődési ház</h2>
+                  <p>·</p>
+                  <h2 className='opacity-40 font-normal text-base'>1 órája</h2>
+                </div>
+              </div>
+              <div className='request-item-row-holder mt-[15px] md:mt-[-10px] md:pl-[60px] -my-4 mb-0'>
+                <div className='request-item-row flex-col md:flex-row gap-y-[10px] px-[15px] py-[10px] border rounded-[10px] border-slate-300	flex justify-between'>
+                  <RequestItem/>
+                  <div className='request-item-info flex items-center gap-[2rem] md:gap-[3rem] justify-end'>
+                    <div className='urgent flex gap-[10px] items-center'>
+                      <img src='../images/urgent.svg'/>
+                      <h2 className='text-base text-red'>Urgent</h2>
+                    </div>
+
+                    <h2 className='text-base opacity-40 font-normal'> 4 napja</h2>
+                  </div>
+                </div>
+              </div>
+              <div className='button-holder md:pl-[60px] w-full flex justify-center'>
+                  <button type="button" className="py-2 px-5 mt-[20px] hover:bg-slate-100 focus:ring-bg-slate-10 focus:ring-offset-bg-slate-50 transition ease-in duration-200 text-center focus:outline-none focus:ring-2 focus:ring-offset-2 border rounded-full border-slate-300 text-base font-normal flex items-center gap-[10px] normal-case">
+                  <FontAwesomeIcon icon={faMapMarkerAlt} />
+                    Elérhetőség
+                  </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </main>
 
       <footer className={styles.footer}>...</footer>

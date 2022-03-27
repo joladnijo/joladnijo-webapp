@@ -24,12 +24,12 @@ const NavBar: React.FC = () => {
 
   return (
     <nav
-      className={`flex bg-white flex-wrap max-h-[70px] items-center justify-center p-4 border-b-1 border-gray-100 drop-shadow-[0_4px_12px_rgba(0,0,0,0.08)] fixed left-0 top-0 right-0 z-10 ${navClassScrolled}`}
+      className={`flex bg-white flex-wrap min-h-[80px] items-center justify-center center-items px -4 border-b-1 border-gray-100 drop-shadow-[0_4px_12px_rgba(0,0,0,0.08)] fixed left-0 top-0 right-0 z-10 transition-all duration-500	 ${navClassScrolled}`}
     >
       <div className="lg:order-2 w-auto lg:w-1/5 lg:text-center">
         <a className="text-xl text-gray-800 font-semibold font-heading" href="#">
           <svg
-            className="mx-auto max-h-[40px]"
+            className="mx-auto max-h-[40px] logo transition-all duration-500"
             width="162"
             height="51"
             viewBox="0 0 162 51"
