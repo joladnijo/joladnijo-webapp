@@ -59,7 +59,7 @@ jobs:
     - name: Install Playwright
       run: npm run playwright:install:ci
     - name: Run E2E tests
-      run: npm run e2e
+      run: PWDEBUG=1 npm run e2e
     - name: Upload test results
       if: always()
       uses: actions/upload-artifact@v2

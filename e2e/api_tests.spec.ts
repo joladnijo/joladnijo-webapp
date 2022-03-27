@@ -20,7 +20,10 @@ export default config;
 //const REPO = 'test-repo-1';
 //const USER = 'github-username';
 
-test('nézzük meg milyen az idő budapesten', async ({ request }) => {
+test('budapest_idojaras', async ({ request }) => {
   const budIdo = await request.get(`/api/location/search/?query=budapest`);
   expect(budIdo.ok()).toBeTruthy();
+  expect(await budIdo.json()).toContainEqual(expect.objectContaining({
+    title: 'Budapest',
+    woeid: '804365'
 });
