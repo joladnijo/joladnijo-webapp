@@ -1,5 +1,4 @@
 import { test, expect } from '@playwright/test'
-
 //példa request innen: https://playwright.dev/docs/test-api-testing
 const config: PlaywrightTestConfig = {
   use: {
