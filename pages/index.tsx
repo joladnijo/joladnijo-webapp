@@ -3,8 +3,6 @@ import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 import NavBar from '@/components/NavBar';
 import RequestItem from '@/components/RequestItem';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 
 import Image from 'next/image';
 import heroDecor from '../public/images/hero-decor.png';
@@ -83,9 +81,12 @@ const Home: NextPage = () => {
               <div className="button-holder md:pl-[60px] w-full flex justify-center">
                 <button
                   type="button"
-                  className="py-2 px-5 mt-[20px] hover:bg-slate-100 focus:ring-bg-slate-10 focus:ring-offset-bg-slate-50 transition ease-in duration-200 text-center focus:outline-none focus:ring-2 focus:ring-offset-2 border rounded-full border-slate-300 text-base font-normal flex items-center gap-[10px] normal-case"
+                  className="py-3 px-6 mt-[20px] hover:bg-slate-100 focus:ring-bg-slate-10 focus:ring-offset-bg-slate-50 transition ease-in duration-200 text-center focus:outline-none focus:ring-2 focus:ring-offset-2 border rounded-full border-slate-300 text-base font-normal flex items-center gap-[10px] normal-case"
                 >
-                  <FontAwesomeIcon icon={faMapMarkerAlt} />
+                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9 3.375C7.13901 3.375 5.625 4.88901 5.625 6.75C5.625 8.611 7.13901 10.125 9 10.125C10.861 10.125 12.375 8.611 12.375 6.75C12.375 4.88901 10.861 3.375 9 3.375ZM9 9C7.75934 9 6.75 7.99067 6.75 6.75C6.75 5.50934 7.75934 4.5 9 4.5C10.2407 4.5 11.25 5.50934 11.25 6.75C11.25 7.99067 10.2407 9 9 9ZM9 0C5.27207 0 2.25 3.02207 2.25 6.75C2.25 9.47156 3.19816 10.2316 8.3063 17.6368C8.64148 18.121 9.35849 18.1211 9.69374 17.6368C14.8018 10.2316 15.75 9.47156 15.75 6.75C15.75 3.02207 12.7279 0 9 0ZM9 16.6616C4.10291 9.57966 3.375 9.01737 3.375 6.75C3.375 5.2475 3.96011 3.83495 5.02253 2.77253C6.08495 1.71011 7.4975 1.125 9 1.125C10.5025 1.125 11.9151 1.71011 12.9775 2.77253C14.0399 3.83495 14.625 5.2475 14.625 6.75C14.625 9.01723 13.8976 9.57903 9 16.6616Z" fill="#090015"/>
+                  </svg>
+
                   Elérhetőség
                 </button>
               </div>
