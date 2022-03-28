@@ -36,13 +36,14 @@ const Home: NextPage = () => {
                 Mivel tudok segíteni?
               </button>
             </div>
-            <Image
-              src={heroDecor}
-              alt="Hero deco"
-              layout="fill"
-              objectFit="none"
-              className="absolute max-w-[300px] xs:max-w-[400px] sm:max-w-[500px] md:max-w-[600px] bottom-0 left-0"
-            />
+            <div className='image-container h-[26px] sm:h-[38px] md:h-[44px] absolute w-[300px] xs:w-[400px] sm:max-w-[500px] md:w-[600px] bottom-0 left-0'>
+              <Image
+                src={heroDecor}
+                alt="Hero deco"
+                layout="fill"
+                objectFit="cover"
+              />
+            </div>
           </div>
         </div>
 
