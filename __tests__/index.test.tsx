@@ -3,10 +3,10 @@ import Home from '@/pages/index';
 
 describe('Home', () => {
   it('renders a heading', () => {
-    render(<Home environmentName="test" />);
+    render(<Home />);
 
     const heading = screen.getByRole('heading', {
-      name: /Jól adni jó/i,
+      name: /Ukrán válsághelyzet/i,
     });
 
     expect(heading).toBeInTheDocument();

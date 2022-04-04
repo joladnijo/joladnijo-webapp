@@ -1,11 +1,12 @@
-import type { GetServerSideProps, NextPage } from 'next';
+import type { NextPage } from 'next';
 import Head from 'next/head';
+import Image from 'next/image';
 import styles from '../styles/Home.module.css';
 import NavBar from '@/components/NavBar';
 import RequestItem from '@/components/RequestItem';
 
-import Image from 'next/image';
 import heroDecor from '../public/images/hero-decor.png';
+import urgentSvg from '../public/images/urgent.svg';
 
 const Home: NextPage = () => {
   return (
@@ -65,7 +66,7 @@ const Home: NextPage = () => {
                   <RequestItem name="Fagyi" category={{ name: 'Elelem' }} isUrgent={false} />
                   <div className="request-item-info flex items-center gap-[2rem] md:gap-[3rem] justify-end">
                     <div className="urgent flex gap-[10px] items-center">
-                      <img src="../images/urgent.svg" />
+                      <Image src={urgentSvg} alt="it's urgent" layout="fill" objectFit="cover" />
                       <h2 className="text-base text-red">Urgent</h2>
                     </div>
 
