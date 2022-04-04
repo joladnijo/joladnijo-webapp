@@ -4,7 +4,7 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons/faSearch';
 import { AidCenterAssetsRequested } from 'backend-sdk';
 
 const RequestItem: React.FC<AidCenterAssetsRequested> = (props) => {
-  const { name, note, status, isUrgent } = props;
+  const { name, note, isUrgent } = props;
   return (
     <div className="item relative flex flex-row gap-x-4  items-center">
       <div className="icon relative h-[38px]  w-[38px] flex items-center justify-center border border-[#303b5966] rounded-full">
