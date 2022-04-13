@@ -1,7 +1,6 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch } from '@fortawesome/free-solid-svg-icons/faSearch';
 import { AidCenterAssetsRequested } from 'backend-sdk';
+import { SearchIcon } from 'react-line-awesome';
 
 const RequestItem: React.FC<AidCenterAssetsRequested> = (props) => {
   const { name, note, isUrgent } = props;
@@ -9,7 +8,7 @@ const RequestItem: React.FC<AidCenterAssetsRequested> = (props) => {
     <div className="item relative flex flex-row gap-x-4  items-center">
       <div className="icon relative h-[38px]  w-[38px] flex items-center justify-center border border-[#303b5966] rounded-full">
         <div className="slab h-[1px] w-[38px] absolute t-16.5 l-0 bg-[#999999] rotate-45"></div>
-        <FontAwesomeIcon icon={faSearch} className="text-gray-400 top-5 left-4" />
+        <SearchIcon className="text-gray-400 top-5 left-4" />
       </div>
       <svg
         className="absolute w-35 h-35 left-[27px] top-[2px]"
