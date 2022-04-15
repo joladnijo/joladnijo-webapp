@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,800;0,900;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,600;0,700;0,800;0,900;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap');
 
 @tailwind base;
@@ -23,20 +23,20 @@ body {
 h1 {
   font-family: 'Fira Sans', sans-serif;
   font-size: 26px;
-  font-weight: 900;
+  font-weight: 800;
 }
 
 
 h2 {
   font-family: 'Fira Sans', sans-serif;
-  font-size: 18px;
-  font-weight: 800;
+  font-size: 16px;
+  font-weight: 600;
 }
 
 
 h3 {
   font-family: 'Fira Sans', sans-serif;
-  font-weight: 800;
+  font-weight: 600;
 }
 
 p {

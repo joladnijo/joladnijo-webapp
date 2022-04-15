@@ -66,7 +66,7 @@ const Home: NextPage = () => {
                   <RequestItem name="Fagyi" category={{ name: 'Elelem' }} isUrgent={false} />
                   <div className="request-item-info flex items-center gap-[2rem] md:gap-[3rem] justify-end">
                     <div className="urgent flex gap-[10px] items-center">
-                      <Image src={urgentSvg} alt="it's urgent" layout="fill" objectFit="cover" />
+                      <Image src={urgentSvg} alt="it's urgent" layout="fixed" objectFit="cover" />
                       <h2 className="text-base text-red">Urgent</h2>
                     </div>
 
