@@ -4,12 +4,12 @@ import Head from 'next/head';
 import NavBar from '@/components/NavBar';
 import Header from '@/components/AidCenter/Header';
 import Contact from '@/components/AidCenter/Contact';
-
+import Image from 'next/image';
 import { AidCenter, AidCenterCallRequiredEnum } from 'backend-sdk/models';
 import { AidCentersApi } from 'backend-sdk/apis';
 import { Configuration } from 'backend-sdk/runtime';
-
 import RequestItem from '@/components/RequestItem';
+import AidCenterNote from 'public/images/aid-center-note.svg';
 
 interface AidCenterInfoPageProps extends AidCenter {}
 
@@ -55,7 +55,8 @@ const AidCenterInfoPage: NextPage<AidCenterInfoPageProps> = (props) => {
                 {/* AID-CENTER INSTRUCTION */}
 
                 {callRequired && callRequired === AidCenterCallRequiredEnum.Required && (
-                  <div className="aid-center-instruction py-4 border-t-1  border-t-2 border-b-2 border-gray-200 text-sm">
+                  <div className="aid-center-instruction py-4 border-t-[1px] border-b-[1px] border-gray-200 text-sm flex items-center gap-4">
+                    <Image src={AidCenterNote} alt="Aid Center Note" layout="fixed" objectFit="cover" />
                     <h3>Adományküldés előtt kérjük hívja fel a gyűjtőpontot!</h3>
                   </div>
                 )}
