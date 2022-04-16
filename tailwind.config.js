@@ -3,18 +3,16 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        'aid-center-hero': "url('../public/images/gyujtohely-img.png')",
-        'main-hero': "url('../public/images/main-hero.png')",
+        'aid-center-hero': "url('/images/gyujtohely-img.png')",
+        'main-hero': "url('/images/main-hero.png')",
       },
       colors: {
-        'orange': '#EB8323',
+        orange: '#EB8323',
         'orange-lighten': '#FF9738',
         'orange-light': '#FFC692',
-        'red': '#EC4646',
-      }
-
+        red: '#EC4646',
+      },
     },
-
   },
   plugins: [],
 };
