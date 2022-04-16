@@ -1,10 +1,13 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons/faSearch';
-import { AidCenterAssetsRequested } from 'backend-sdk';
+import { AidCenterAssetsRequested, AidCenterAssetsRequestedStatusEnum } from 'backend-sdk';
 
-const RequestItem: React.FC<AidCenterAssetsRequested> = (props) => {
-  const { name, note, isUrgent } = props;
+type RequestItemProps = Pick<AidCenterAssetsRequested, 'name' | 'note' | 'status'>;
+
+const RequestItem: React.FC<RequestItemProps> = (props) => {
+  const { name, note, status } = props;
+  const isUrgent = status === AidCenterAssetsRequestedStatusEnum.Urgent;
   return (
     <div className="item relative flex flex-row gap-x-4  items-center">
       <div className="icon relative h-[38px]  w-[38px] flex items-center justify-center border border-[#303b5966] rounded-full">
