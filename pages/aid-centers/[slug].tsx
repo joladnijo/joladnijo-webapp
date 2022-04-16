@@ -4,12 +4,13 @@ import Head from 'next/head';
 import NavBar from '@/components/NavBar';
 import Header from '@/components/AidCenter/Header';
 import Contact from '@/components/AidCenter/Contact';
-
+import Image from 'next/image';
 import { AidCenter, AidCenterCallRequiredEnum } from 'backend-sdk/models';
 import { AidCentersApi } from 'backend-sdk/apis';
 import { Configuration } from 'backend-sdk/runtime';
-
 import RequestItem from '@/components/RequestItem';
+import AidCenterNote from 'public/images/aid-center-note.svg';
+import { getBackendBaseUrl } from 'lib/apiHelpers';
 
 interface AidCenterInfoPageProps extends AidCenter {}
 
@@ -18,16 +19,8 @@ interface AidCenterInfoPageParams {
   slug: string;
 }
 
-const getBackendBaseUrl = ({ ENVIRONMENT }: any) => {
-  if (ENVIRONMENT === 'staging') {
-    return 'https://api.staging.joladnijo.jmsz.hu';
-  } else if (ENVIRONMENT === 'production') {
-    return 'https://api.staging.joladnijo.jmsz.hu';
-  } else return 'http://localhost:8000';
-};
-
 const AidCenterInfoPage: NextPage<AidCenterInfoPageProps> = (props) => {
-  const { name, note, assetsRequested, assetsOverloaded, callRequired } = props;
+  const { name, note, assetsRequested, assetsUrgent, assetsFulfilled, callRequired } = props;
   return (
     <div className={styles.container}>
       <Head>
@@ -55,8 +48,28 @@ const AidCenterInfoPage: NextPage<AidCenterInfoPageProps> = (props) => {
                 {/* AID-CENTER INSTRUCTION */}
 
                 {callRequired && callRequired === AidCenterCallRequiredEnum.Required && (
-                  <div className="aid-center-instruction py-4 border-t-1  border-t-2 border-b-2 border-gray-200 text-sm">
+                  <div className="aid-center-instruction py-4 border-t-[1px] border-b-[1px] border-gray-200 text-sm flex items-center gap-4">
+                    <Image
+                      src={AidCenterNote}
+                      alt="Aid Center Note"
+                      layout="fixed"
+                      objectFit="cover"
+                      width="100%"
+                      height="100%"
+                    />
                     <h3>Adományküldés előtt kérjük hívja fel a gyűjtőpontot!</h3>
+                  </div>
+                )}
+
+                {assetsUrgent && (
+                  <div className="aid-needed flex-col flex gap-y-4">
+                    <h2>Sürgős</h2>
+                    <div className="item-list flex flex-col gap-y-3	">
+                      {/* ITEM */}
+                      {assetsUrgent.map((item) => (
+                        <RequestItem key={item.id} {...item} />
+                      ))}
+                    </div>
                   </div>
                 )}
 
@@ -74,12 +87,12 @@ const AidCenterInfoPage: NextPage<AidCenterInfoPageProps> = (props) => {
                 )}
 
                 {/* AID NOT NEEDED */}
-                {assetsOverloaded && (
+                {assetsFulfilled && (
                   <div className="aid-not-needed flex-col flex gap-y-4">
                     <h2>Amiket ne hozzanak</h2>
                     <div className="item-list flex flex-col gap-y-3	">
                       {/* ITEM */}
-                      {assetsOverloaded.map((item) => (
+                      {assetsFulfilled.map((item) => (
                         <RequestItem key={item.id} {...item} />
                       ))}
                     </div>
@@ -115,7 +128,7 @@ export default AidCenterInfoPage;
 export const getServerSideProps: GetServerSideProps<AidCenterInfoPageProps, AidCenterInfoPageParams> = async (
   context,
 ) => {
-  const basePath = getBackendBaseUrl(process.env);
+  const basePath = getBackendBaseUrl();
   const api = new AidCentersApi(new Configuration({ basePath }));
   const { slug } = context.params!;
 
