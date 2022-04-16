@@ -49,7 +49,14 @@ const AidCenterInfoPage: NextPage<AidCenterInfoPageProps> = (props) => {
 
                 {callRequired && callRequired === AidCenterCallRequiredEnum.Required && (
                   <div className="aid-center-instruction py-4 border-t-[1px] border-b-[1px] border-gray-200 text-sm flex items-center gap-4">
-                    <Image src={AidCenterNote} alt="Aid Center Note" layout="fixed" objectFit="cover" />
+                    <Image
+                      src={AidCenterNote}
+                      alt="Aid Center Note"
+                      layout="fixed"
+                      objectFit="cover"
+                      width="100%"
+                      height="100%"
+                    />
                     <h3>Adományküldés előtt kérjük hívja fel a gyűjtőpontot!</h3>
                   </div>
                 )}

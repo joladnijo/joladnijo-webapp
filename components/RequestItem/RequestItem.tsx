@@ -1,7 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons/faSearch';
-import { AidCenterAssetsRequested, AidCenterAssetsRequestedStatusEnum } from 'backend-sdk';
+import { AidCenterAssetsRequested, AidCenterAssetsRequestedStatusEnum } from 'backend-sdk/models';
 
 type RequestItemProps = Pick<AidCenterAssetsRequested, 'name' | 'note' | 'status'>;
 
