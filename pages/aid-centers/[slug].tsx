@@ -61,7 +61,7 @@ const AidCenterInfoPage: NextPage<AidCenterInfoPageProps> = (props) => {
                   </div>
                 )}
 
-                {assetsUrgent.length > 0 && (
+                {assetsUrgent && assetsUrgent.length > 0 && (
                   <div className="aid-needed flex-col flex gap-y-4">
                     <h2>Sürgős</h2>
                     <div className="item-list flex flex-col gap-y-3	">
@@ -74,7 +74,7 @@ const AidCenterInfoPage: NextPage<AidCenterInfoPageProps> = (props) => {
                 )}
 
                 {/* AID NEEDED */}
-                {assetsRequested.length > 0 && (
+                {assetsFulfilled && assetsRequested.length > 0 && (
                   <div className="aid-needed flex-col flex gap-y-4">
                     <h2>Adományok, amiket várunk</h2>
                     <div className="item-list flex flex-col gap-y-3	">
@@ -87,7 +87,7 @@ const AidCenterInfoPage: NextPage<AidCenterInfoPageProps> = (props) => {
                 )}
 
                 {/* AID NOT NEEDED */}
-                {assetsFulfilled.length > 0 && (
+                {assetsFulfilled && assetsFulfilled.length > 0 && (
                   <div className="aid-not-needed flex-col flex gap-y-4">
                     <h2>Amiket ne hozzanak</h2>
                     <div className="item-list flex flex-col gap-y-3	">
