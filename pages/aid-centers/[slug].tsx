@@ -74,7 +74,7 @@ const AidCenterInfoPage: NextPage<AidCenterInfoPageProps> = (props) => {
                 )}
 
                 {/* AID NEEDED */}
-                {assetsFulfilled && assetsRequested.length > 0 && (
+                {assetsRequested && assetsRequested.length > 0 && (
                   <div className="aid-needed flex-col flex gap-y-4">
                     <h2>Adományok, amiket várunk</h2>
                     <div className="item-list flex flex-col gap-y-3	">
