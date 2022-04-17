@@ -1,6 +1,7 @@
 .openapi-generator-ignore
 apis/AidCentersApi.ts
 apis/ApiApi.ts
+apis/FeedItemsApi.ts
 apis/index.ts
 index.ts
 models/index.ts

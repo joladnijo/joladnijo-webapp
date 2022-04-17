@@ -12,6 +12,7 @@ const customJestConfig = {
     '^@/pages/(.*)$': '<rootDir>/pages/$1',
     '^lib/(.*)$': '<rootDir>/lib/$1',
     '^backend-sdk/(.*)$': '<rootDir>/backend-sdk/$1',
+    '^.+\\.(jpg|jpeg|png|gif|webp|avif|svg)$': '<rootDir>/__mocks__/fileMock.js',
   },
   testEnvironment: 'jest-environment-jsdom',
   testMatch: ['**/__tests__/*.(ts|tsx)'],

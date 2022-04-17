@@ -1,0 +1,9 @@
+.scrolled {
+  @apply shadow-2xl;
+  border-bottom: 0px;
+  min-height: 60px;
+}
+
+.scrolled svg{
+  max-height: 35px;
+}
