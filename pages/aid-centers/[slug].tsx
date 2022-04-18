@@ -22,6 +22,7 @@ interface AidCenterInfoPageParams {
 const AidCenterInfoPage: NextPage<AidCenterInfoPageProps> = (props) => {
   const { name, note, assetsRequested, assetsUrgent, assetsFulfilled, callRequired, slug, city, organization } = props;
   const basePath = getBackendBaseUrl();
+  const description = name + ' gyűjtőközpont szükségletei';
 
   return (
     <div className={styles.container}>
@@ -33,14 +34,8 @@ const AidCenterInfoPage: NextPage<AidCenterInfoPageProps> = (props) => {
         <meta property="og:locale" content="hu_HU" />
         <meta property="og:url" content={`${basePath}/aid-centers/${slug}`} />
         <meta property="og:title" content={`${name} gyűjtőközpont szükségletei`} />
-        <meta
-          property="og:description"
-          content={`A ${city} településen működő ${organization.name} szervezetnek az alábbi adományokra van szüksége a legfrissebb adataink szerint:`}
-        />
-        <meta
-          name="description"
-          content={`A ${city} településen működő ${organization.name} szervezetnek az alábbi adományokra van szüksége a legfrissebb adataink szerint:`}
-        />
+        <meta property="og:description" content={description} />
+        <meta name="description" content={description} />
         <meta property="og:type" content="article" />
         <meta property="og:image" content={`${basePath}/images/gyujtohely-img.png`} />
       </Head>
