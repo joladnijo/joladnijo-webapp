@@ -22,6 +22,8 @@ interface HomeProps {
 }
 
 const Home: NextPage<HomeProps> = (props) => {
+  const basePath = getBackendBaseUrl();
+
   return (
     <div className={styles.container}>
       <Head>
@@ -29,7 +31,7 @@ const Home: NextPage<HomeProps> = (props) => {
         <link rel="icon" href="/favicon.ico" />
 
         <meta property="og:locale" content="hu_HU" />
-        <meta property="og:url" content="https://joladnijo.hu/" />
+        <meta property="og:url" content={`${basePath}/`} />
         <meta property="og:title" content="Jól adni jó!" />
         <meta
           property="og:description"
@@ -37,7 +39,7 @@ const Home: NextPage<HomeProps> = (props) => {
         />
         <meta name="description" content="Támogasd az adománygyűjtő közösségeket pont azzal, amire szükségük van!" />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://joladnijo.hu/images/main-hero.png" />
+        <meta property="og:image" content={`${basePath}/images/main-hero.png`} />
       </Head>
 
       <main className={styles.main}>
