@@ -22,7 +22,7 @@ interface AidCenterInfoPageParams {
 const AidCenterInfoPage: NextPage<AidCenterInfoPageProps> = (props) => {
   const { name, note, assetsRequested, assetsUrgent, assetsFulfilled, callRequired, slug, city, organization } = props;
   const basePath = getBackendBaseUrl();
-  const description = name + ' gyűjtőközpont szükségletei';
+  const description = `A ${city} településen működő ${organization.name} szervezetnek az alábbi adományokra van szüksége a legfrissebb adataink szerint:`;
 
   return (
     <div className={styles.container}>
