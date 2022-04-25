@@ -12,7 +12,9 @@ import RequestItem from '@/components/RequestItem';
 import AidCenterNote from 'public/images/aid-center-note.svg';
 import { getBackendBaseUrl } from 'lib/apiHelpers';
 
-interface AidCenterInfoPageProps extends AidCenter {}
+interface AidCenterInfoPageProps extends AidCenter {
+  frontendBaseUrl: string;
+}
 
 interface AidCenterInfoPageParams {
   [key: string]: string;
@@ -20,8 +22,18 @@ interface AidCenterInfoPageParams {
 }
 
 const AidCenterInfoPage: NextPage<AidCenterInfoPageProps> = (props) => {
-  const { name, note, assetsRequested, assetsUrgent, assetsFulfilled, callRequired, slug, city, organization } = props;
-  const basePath = getBackendBaseUrl();
+  const {
+    name,
+    note,
+    assetsRequested,
+    assetsUrgent,
+    assetsFulfilled,
+    callRequired,
+    slug,
+    city,
+    organization,
+    frontendBaseUrl,
+  } = props;
   const description = `A ${city} településen működő ${organization.name} szervezetnek az alábbi adományokra van szüksége a legfrissebb adataink szerint:`;
 
   return (
@@ -32,12 +44,12 @@ const AidCenterInfoPage: NextPage<AidCenterInfoPageProps> = (props) => {
         <link rel="icon" href="/favicon.ico" />
 
         <meta property="og:locale" content="hu_HU" />
-        <meta property="og:url" content={`${basePath}/aid-centers/${slug}`} />
+        <meta property="og:url" content={`${frontendBaseUrl}/aid-centers/${slug}`} />
         <meta property="og:title" content={`${name} gyűjtőközpont szükségletei`} />
         <meta property="og:description" content={description} />
         <meta name="description" content={description} />
         <meta property="og:type" content="article" />
-        <meta property="og:image" content={`${basePath}/images/gyujtohely-img.png`} />
+        <meta property="og:image" content={`${frontendBaseUrl}/images/gyujtohely-img.png`} />
       </Head>
 
       {/* NAVBAR */}
@@ -142,12 +154,14 @@ export const getServerSideProps: GetServerSideProps<AidCenterInfoPageProps, AidC
   const basePath = getBackendBaseUrl();
   const api = new AidCentersApi(new Configuration({ basePath }));
   const { slug } = context.params!;
+  const frontendBaseUrl = context.req.headers.host || '';
 
   try {
     const response = await api.retrieveAidCenter(slug);
     return {
       props: {
         ...response,
+        frontendBaseUrl,
       },
     };
   } catch (error: any) {
