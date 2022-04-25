@@ -9,7 +9,7 @@ describe('AidCenter Info page', () => {
     const props: AidCenter = { ...defaultAidCenter, callRequired: AidCenterCallRequiredEnum.Required };
 
     // act
-    render(<AidCenterInfoPage {...props} />);
+    render(<AidCenterInfoPage {...props} frontendBaseUrl="http://example.test" />);
 
     // assert
     const requiredText = screen.getByText('Adományküldés előtt kérjük hívja fel a gyűjtőpontot!');
@@ -21,7 +21,7 @@ describe('AidCenter Info page', () => {
     const props: AidCenter = { ...defaultAidCenter, callRequired: AidCenterCallRequiredEnum.Denied };
 
     // act
-    render(<AidCenterInfoPage {...props} />);
+    render(<AidCenterInfoPage {...props} frontendBaseUrl="http://example.test" />);
 
     // assert
     const requiredText = screen.queryByText('Adományküldés előtt kérjük hívja fel a gyűjtőpontot!');
