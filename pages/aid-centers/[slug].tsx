@@ -11,6 +11,7 @@ import { Configuration } from 'backend-sdk/runtime';
 import RequestItem from '@/components/RequestItem';
 import AidCenterNote from 'public/images/aid-center-note.svg';
 import { getBackendBaseUrl } from 'lib/apiHelpers';
+import { getBaseUrl } from 'lib/urlHelpers';
 
 interface AidCenterInfoPageProps extends AidCenter {
   frontendBaseUrl: string;
@@ -154,7 +155,7 @@ export const getServerSideProps: GetServerSideProps<AidCenterInfoPageProps, AidC
   const basePath = getBackendBaseUrl();
   const api = new AidCentersApi(new Configuration({ basePath }));
   const { slug } = context.params!;
-  const frontendBaseUrl = context.req.headers.host || '';
+  const frontendBaseUrl = getBaseUrl();
 
   try {
     const response = await api.retrieveAidCenter(slug);

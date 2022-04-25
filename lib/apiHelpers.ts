@@ -3,6 +3,6 @@ export const getBackendBaseUrl = () => {
   if (ENVIRONMENT === 'staging') {
     return 'https://api.staging.joladnijo.hu';
   } else if (ENVIRONMENT === 'production') {
-    return 'https://api.joladnijo.jmsz.hu';
+    return 'https://api.joladnijo.hu';
   } else return 'http://localhost:8000';
 };
